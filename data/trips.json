@@ -1,0 +1,32 @@
+[
+  {
+    "code": "TR001",
+    "name": "Caribbean Getaway",
+    "length": "7 days",
+    "start": "2025-07-01",
+    "resort": "Sunset Paradise",
+    "perPerson": "$1,299",
+    "image": "/images/caribbean.jpg",
+    "description": "Enjoy the warm sun and white sandy beaches on this Caribbean escape."
+  },
+  {
+    "code": "TR002",
+    "name": "Alaskan Adventure",
+    "length": "10 days",
+    "start": "2025-08-15",
+    "resort": "Northern Lights Lodge",
+    "perPerson": "$1,899",
+    "image": "/images/alaska.jpg",
+    "description": "Explore glaciers and wildlife in the heart of Alaska."
+  },
+  {
+    "code": "TR003",
+    "name": "European Explorer",
+    "length": "14 days",
+    "start": "2025-09-10",
+    "resort": "Historic Hotels",
+    "perPerson": "$2,599",
+    "image": "/images/europe.jpg",
+    "description": "Visit Paris, Rome, and London in this classic Euro tour."
+  }
+]
