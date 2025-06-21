@@ -1,0 +1,47 @@
+<h2>{{ isEditMode ? 'Edit Trip' : 'Add New Trip' }}</h2>
+
+<form (ngSubmit)="saveTrip()" *ngIf="newTrip">
+  <div class="form-group">
+    <label for="code">Trip Code:</label>
+    <input id="code" name="code" class="form-control" [(ngModel)]="newTrip.code" required [readonly]="isEditMode" />
+  </div>
+
+  <div class="form-group">
+    <label for="name">Trip Name:</label>
+    <input id="name" name="name" class="form-control" [(ngModel)]="newTrip.name" required />
+  </div>
+
+  <div class="form-group">
+    <label for="length">Length (days):</label>
+    <input id="length" name="length" class="form-control" [(ngModel)]="newTrip.length" required />
+  </div>
+
+  <div class="form-group">
+    <label for="start">Start Date:</label>
+    <input id="start" name="start" class="form-control" type="date" [(ngModel)]="newTrip.start" required />
+  </div>
+
+  <div class="form-group">
+    <label for="resort">Resort:</label>
+    <input id="resort" name="resort" class="form-control" [(ngModel)]="newTrip.resort" required />
+  </div>
+
+  <div class="form-group">
+    <label for="perPerson">Price per Person:</label>
+    <input id="perPerson" name="perPerson" class="form-control" [(ngModel)]="newTrip.perPerson" required />
+  </div>
+
+  <div class="form-group">
+    <label for="image">Image Filename (e.g. /images/europe.jpeg):</label>
+    <input id="image" name="image" class="form-control" [(ngModel)]="newTrip.image" required />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" class="form-control" [(ngModel)]="newTrip.description" rows="4" required></textarea>
+  </div>
+
+  <button class="btn btn-primary" type="submit">
+    {{ isEditMode ? 'Update Trip' : 'Add Trip' }}
+  </button>
+</form>

@@ -1,0 +1,16 @@
+<h2>Available Trips</h2>
+
+<!-- Add Trip Button -->
+<div class="mb-3">
+  <a routerLink="/add-trip" class="btn btn-primary">+ Add New Trip</a>
+</div>
+
+<!-- Trip Cards -->
+<div *ngIf="trips.length > 0; else noTrips">
+  <app-trip-card *ngFor="let trip of trips" [trip]="trip"></app-trip-card>
+</div>
+
+<!-- Fallback Template -->
+<ng-template #noTrips>
+  <p>No trips found.</p>
+</ng-template>
