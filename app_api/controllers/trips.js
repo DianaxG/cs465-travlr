@@ -50,11 +50,13 @@ const tripsCreate = async (req, res) => {
   }
 };
 
-// PUT update a trip by MongoDB _id
+// PUT update a trip by trip code
 const tripsUpdate = async (req, res) => {
   try {
-    const updatedTrip = await Trip.findByIdAndUpdate(
-      req.params.tripId,
+    const { tripCode } = req.params;
+
+    const updatedTrip = await Trip.findOneAndUpdate(
+      { code: tripCode },
       {
         $set: {
           name: req.body.name,
@@ -80,9 +82,27 @@ const tripsUpdate = async (req, res) => {
   }
 };
 
+// DELETE a trip by trip code
+const tripsDelete = async (req, res) => {
+  try {
+    const { tripCode } = req.params;
+    const deleted = await Trip.findOneAndDelete({ code: tripCode });
+
+    if (!deleted) {
+      return res.status(404).json({ message: "Trip not found" });
+    }
+
+    res.status(200).json({ message: "Trip deleted successfully" });
+  } catch (err) {
+    console.error("Trip delete error:", err);
+    res.status(400).json({ message: "Failed to delete trip", error: err });
+  }
+};
+
 module.exports = {
   tripsList,
   tripsFindByCode,
   tripsCreate,
-  tripsUpdate
+  tripsUpdate,
+  tripsDelete
 };
